@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Role extends Model
+{
+
+    
+    public $timestamps = false;
+
+    protected $fillable = [
+        'role_name',
+        'description',
+    ];  
+
+    public function employees()
+    {
+        return $this->hasOne(Employee::class);
+    }
+}

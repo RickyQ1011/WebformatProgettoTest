@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Company extends Model
+{
+    
+    public $timestamps = false;
+
+    protected $fillable = [
+        'company_name',
+        'vat_number',
+        'description',
+    ];
+    
+    public function employees()
+    {        
+        return $this->hasMany(Employee::class);
+    }
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
+}
